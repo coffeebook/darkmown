@@ -106,26 +106,9 @@ Darkmown.converter = ->
 
       # attacklab: Restore tildes
       .replace(/~T/g, "~")
-      # auto-link urls
-      # .replace(/https?\:\/\/|www\.\w+\.\w+|\d+/g, (wholeMatch, matchIndex) -> # '<a href="$1">$1</a>'
-             # /((https?|ftp:\/\/|www\.)[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g
-             # /https?\:\/\/[^"\s\<\>]*[^.,;'">\:\s\<\>\)\]\!]/g
-             #/(https?\:\/\/|www\.)[^"\s\<\>]*[^.,;'">\:\s\<\>\)\]\!]/g
-             #/(https?\:\/\/|www\.)(\w|\d)+\.(\w|\d)[^"\s\<\>\)\]\!]*/g
-      ###
-        left = text.slice(0, matchIndex)
-        right = text.slice(matchIndex)
-        if left.match(/<[^>]+$/) && right.match(/^[^>]*>/)
-          return wholeMatch
-
-
-        href = wholeMatch.replace(/^www/, "http://www")
-        return "<a href='" + href + "'>" + wholeMatch + "</a>"
-      )
-      ###
 
       # restore globals
-      #g_html_blocks = g_titles = g_urls = null;
+      # g_html_blocks = g_titles = g_urls = null;
 
       prev_html = text
 
