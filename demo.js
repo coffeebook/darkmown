@@ -4,7 +4,7 @@
     var $htmlResult, $renderedResult, $userInput, converter, showResult;
     converter = new Darkmown.converter();
     $userInput = $('#user_input');
-    $renderedResult = $('#result');
+    $renderedResult = $('#rendered_result');
     $htmlResult = $('#html_result');
     showResult = function(html) {
       var value;
