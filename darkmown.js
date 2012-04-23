@@ -53,23 +53,12 @@
       text = text.replace(/~/g, "~T").replace(/\$/g, "~D").replace(/\r\n/g, "\n").replace(/\r/g, "\n");
       text = "\n\n" + text + "\n\n";
       text = _Detab(text);
-      text = text.replace(/^[\s\t]+$/mg, "");
+      text = text.replace(/^[ \t]+$/mg, "");
       text = _HashHTMLBlocks(text);
       text = _StripLinkDefinitions(text);
       text = _RunBlockGamut(text);
       text = _UnescapeSpecialChars(text);
       text = text.replace(/~D/g, "$$").replace(/~T/g, "~");
-      /*
-              left = text.slice(0, matchIndex)
-              right = text.slice(matchIndex)
-              if left.match(/<[^>]+$/) && right.match(/^[^>]*>/)
-                return wholeMatch
-      
-      
-              href = wholeMatch.replace(/^www/, "http://www")
-              return "<a href='" + href + "'>" + wholeMatch + "</a>"
-            )
-      */
       prev_html = text;
       return text;
     };
@@ -129,7 +118,7 @@
     };
     _DoCodeBlocks = function(text) {
       text += "~0";
-      return text = text.replace(/(?:\n\n|^)((?:(?:[]{4}|\t).*\n+)+)(\n*[]{0,3}[^\t\n]|(?=~0))/g, function(wholeMatch, m1, m2) {
+      return text = text.replace(/(?:\n\n|^)((?:(?:[\x20]{4}|\t).*\n+)+)(\n*[\x20]{0,3}[^\t\n]|(?=~0))/g, function(wholeMatch, m1, m2) {
         var codeblock, nextChar;
         codeblock = m1;
         nextChar = m2;
@@ -144,7 +133,7 @@
       return text = text.replace(/(^|[^\\])(`+)([^\r]*?[^`])\2(?!`)/gm, function(wholeMatch, m1, m2, m3, m4) {
         var c;
         c = m3;
-        c = c.replace(/^([\s\t]*)/g, "").replace(/[\s\t]*$/g, "");
+        c = c.replace(/^[\s\t]*|[\s\t]*$/g, "");
         c = _EncodeCode(c);
         return m1 + "<code>" + c + "</code>";
       });
