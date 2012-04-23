@@ -1,17 +1,29 @@
 <!DOCTYPE html>
-<head>
-  <title>Demo Darkmown
-  </title>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
-  <script src="darkmown.js"></script>
-  <script src="demo.js"></script>
-  <link href="demo.css" rel="stylesheet">
+<html>
+  <head>
+    <title>Demo Darkmown
+    </title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="darkmown.js"></script>
+    <script src="demo.js"></script>
+    <link href="demo.css" rel="stylesheet">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-24098807-5']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
   <body>
     <h1>Darkmown <span>a CoffeeScript port of Markdown</span></h1>
     <div class="col">
       <h2>Markdown syntax
       </h2>
-      <textarea id="user_input"># Welcome #
+        <textarea id="user_input"># Welcome #
 Titles like `<h1>` to `<h6>` only render with the # syntax for consistency (no equals nor dashes)
 ## Subtitle
 **Darkmown** is a full-featured Markdown library written in CoffeeScript.
@@ -57,4 +69,4 @@ Just type the email asd@asd.com and boila (it's encoded for a bit of security)
       </textarea>
     </div>
   </body>
-</head>
+</html>
