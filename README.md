@@ -7,6 +7,10 @@
 - Format paragraphs the same way you write, it automatically insert line breakes
 - more to come...
 
+## Demo
+
+See a [Live Demo](http://dciccale.github.com/darkmown/)
+
 ## License
 
 (The MIT License)
