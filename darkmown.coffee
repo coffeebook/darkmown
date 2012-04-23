@@ -88,7 +88,7 @@ Darkmown.converter = ->
     # This makes subsequent regex easier to write, because we can
     # match consecutive blank lines with /\n+/ instead of something
     # like /[\s\t]*\n+/
-    text = text.replace(/^[\s\t]+$/mg, "")
+    text = text.replace(/^[ \t]+$/mg, "")
 
     #Turn block-level HTML blocks into hash entries
     text = _HashHTMLBlocks(text)
@@ -201,20 +201,18 @@ Darkmown.converter = ->
   # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   _DoCodeBlocks = (text) ->
-    #
     # Process Markdown `<pre><code>` blocks.
-    #
     text += "~0"
 
     text = text
       .replace(///
-        (?:\n\n|^)        # $1 = the code block -- one or more lines, starting with a space/tab
+        (?:\n\n|^)             # $1 = the code block -- one or more lines, starting with a space/tab
         (
-          (?:(?:[]{4}|\t) # Lines must start with a tab or a tab-width of spaces
+          (?:(?:[\x20]{4}|\t)  # Lines must start with a tab or a tab-width of spaces
             .*\n+
           )+
         )
-        (\n*[]{0,3}[^ \t\n]|(?=~0))
+        (\n*[\x20]{0,3}[^ \t\n]|(?=~0))
         ///g, (wholeMatch, m1, m2) ->
         codeblock = m1
         nextChar = m2
@@ -245,9 +243,7 @@ Darkmown.converter = ->
       (?!`)
       ///gm, (wholeMatch, m1, m2, m3, m4) ->
         c = m3
-        c = c
-          .replace(/^([\s\t]*)/g, "")  # leading whitespace
-          .replace(/[\s\t]*$/g, "")    # trailing whitespace
+        c = c.replace(/^[\s\t]*|[\s\t]*$/g, "")  # trim
         c = _EncodeCode(c)
         return m1 + "<code>" + c + "</code>"
       )
