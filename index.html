@@ -1,15 +1,27 @@
 <!DOCTYPE html>
-<title>Demo Darkmown
-</title>
+<title>Demo Darkmown</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 <script src="darkmown.js"></script>
 <script src="demo.js"></script>
 <link href="demo.css" rel="stylesheet">
 <h1>Darkmown<span>a CoffeeScript port of Markdown</span>
 </h1>
+<ul class="quick-links">
+  <li>
+    <iframe width="112px" scrolling="0" height="20px" frameborder="0" allowtransparency="true" src="http://markdotto.github.com/github-buttons/github-btn.html?user=dciccale&amp;repo=darkmown&amp;type=watch&amp;count=true" class="github-btn"></iframe>
+  </li>
+  <li>
+    <iframe width="98px" scrolling="0" height="20px" frameborder="0" allowtransparency="true" src="http://markdotto.github.com/github-buttons/github-btn.html?user=dciccale&amp;repo=darkmown&amp;type=fork&amp;count=true" class="github-btn"></iframe>
+  </li>
+  <li class="follow-btn">
+    <iframe scrolling="no" frameborder="0" allowtransparency="true" src="http://platform.twitter.com/widgets/follow_button.1334389481.html#_=1334747041437&amp;id=twitter-widget-2&amp;lang=en&amp;screen_name=tdecs&amp;show_count=true&amp;show_screen_name=true&amp;size=m" style="width: 240px; height: 20px;" title="Twitter Follow Button" class="twitter-follow-button"></iframe>
+  </li>
+  <li class="tweet-btn">
+    <iframe scrolling="no" frameborder="0" allowtransparency="true" src="http://platform.twitter.com/widgets/tweet_button.1334389481.html#_=1334747041430&amp;count=horizontal&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=http%3A%2F%2Fdciccale.github.com%2Fdarkmown&amp;size=m&amp;text=Darkmown%20an%20amazing%20CoffeeScript%20port%20of%20Markdown&amp;url=http%3A%2F%2Fdciccale.github.com%2Fdarkmown&amp;via=tdecs" style="width: 109px; height: 20px;" title="Twitter Tweet Button" class="twitter-share-button twitter-count-horizontal"></iframe>
+  </li>
+</ul>
 <div class="col">
-  <h2>Markdown syntax
-  </h2>
+  <h2>Markdown syntax</h2>
   <textarea id="user_input"># Welcome #
 Titles like `<h1>` to `<h6>` only render with the # syntax for consistency (no equals nor dashes)
 ## Subtitle
@@ -44,14 +56,10 @@ Just type the email asd@asd.com and boila (it's encoded for a bit of security)
   </textarea>
 </div>
 <div class="col">
-  <h2>Live preview
-  </h2>
-  <div id="rendered_result">
-  </div>
+  <h2>Live preview</h2>
+  <div id="rendered_result"></div>
 </div>
 <div class="col">
-  <h2>HTML
-  </h2>
-  <textarea id="html_result">
-  </textarea>
+  <h2>HTML</h2>
+  <textarea id="html_result"></textarea>
 </div>
