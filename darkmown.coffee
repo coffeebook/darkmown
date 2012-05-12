@@ -214,19 +214,19 @@ Darkmown.converter = ->
         )
         (\n*[\x20]{0,3}[^ \t\n]|(?=~0))
         ///g, (wholeMatch, m1, m2) ->
-        codeblock = m1
-        nextChar = m2
+          codeblock = m1
+          nextChar = m2
 
-        codeblock = _EncodeCode(_Outdent(codeblock))
-        codeblock = _Detab(codeblock)
-        codeblock = codeblock
-          .replace(/^\n+/g, "")
-          .replace(/\n+$/g, "")
+          codeblock = _EncodeCode(_Outdent(codeblock))
+          codeblock = _Detab(codeblock)
+          codeblock = codeblock
+            .replace(/^\n+/g, "")
+            .replace(/\n+$/g, "")
 
-        codeblock = "<pre><code>" + codeblock + "\n</code></pre>"
+          codeblock = "<pre><code>" + codeblock + "\n</code></pre>"
 
-        return hashBlock(codeblock) + nextChar
-      )
+          return hashBlock(codeblock) + nextChar
+        )
       .replace(/~0/, "")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -242,10 +242,9 @@ Darkmown.converter = ->
       \2         # Matching closer
       (?!`)
       ///gm, (wholeMatch, m1, m2, m3, m4) ->
-        c = m3
-        c = c.replace(/^[\s\t]*|[\s\t]*$/g, "")  # trim
-        c = _EncodeCode(c)
-        return m1 + "<code>" + c + "</code>"
+        m3 = m3.replace(/^[\s\t]*|[\s\t]*$/g, "")  # trim
+        m3 = _EncodeCode(m3)
+        return m1 + "<code>" + m3 + "</code>"
       )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -506,14 +505,14 @@ Darkmown.converter = ->
             |
             www\.                    # match wwww.
           )
-          [^'">\s]+                  # domain name
+          [^'">\s\<]+                # domain name
           ///gi, (wholeMatch, m1, m2) ->
           link = wholeMatch
+
+          # add default protocol if missing
           if m2 == 'www.'
             link = 'http://' + link
 
-            link = link.replace(/[<>]/g, '')
-            wholeMatch = wholeMatch.replace(/[<>]/g, '')
           return "<a href=\"" + link + "\">" + wholeMatch + "</a>"
         )
 
