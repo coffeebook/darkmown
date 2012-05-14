@@ -733,7 +733,7 @@ Darkmown.converter = ->
           [\s\t]*
         )?                   # title is optional
         (?:\n+|$)
-        ///gm, (wholeMatch, m1, m2, m3, m4) ->
+        ///gm, (wholeMatch, m1, m2, m3, m4, m5) ->
       m1 = m1.toLowerCase()
       g_urls.set(m1, _EncodeAmpsAndAngles(m2)) # Link IDs are case-insensitive
 
