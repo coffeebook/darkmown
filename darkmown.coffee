@@ -1,20 +1,17 @@
 ###
-# darkmown.js is a CoffeeScript port of Markdown
-# Copyright (c) 2012 Denis Ciccale (@tdecs)
-# https://github.com/dciccale/darkmown
-#
-# Original Markdown Copyright (c) 2004-2005 John Gruber
-# http://daringfireball.net/projects/markdown/
-#
-# Inspired by showdown.js
-# https://github.com/coreyti/showdown
+darkmown.js is a CoffeeScript port of Markdown
+Copyright (c) 2012 Denis Ciccale (@tdecs)
+https://github.com/dciccale/darkmown
+
+Original Markdown Copyright (c) 2004-2005 John Gruber
+http://daringfireball.net/projects/markdown/
+
+Inspired by showdown.js
+https://github.com/coreyti/showdown
 ###
 
-# try to export as module
-if typeof exports == "object" && typeof require == "function"
-  Darkmown = exports;
-else
-  Darkmown = {}
+
+Darkmown = {}
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -778,18 +775,18 @@ Darkmown.converter = ->
     # attacklab: This regex can be expensive when it fails.
 
     ###
-            text = text.replace(/
-                (                       # save in $1
-                    ^                   # start of line  (with /m)
-                    <(block_tags_a)     # start tag = $2
-                    \b                  # word break
-                                        # attacklab: hack around khtml/pcre bug...
-                    [^\r]*?\n           # any number of lines, minimally matching
-                    </\2>               # the matching end tag
-                    [\s\t]*              # trailing spaces/tabs
-                    (?=\n+)             # followed by a newline
-                )                       # attacklab: there are sentinel newlines at end of document
-            /gm,function(){...}};
+      text = text.replace(/
+          (                       # save in $1
+              ^                   # start of line  (with /m)
+              <(block_tags_a)     # start tag = $2
+              \b                  # word break
+                                  # attacklab: hack around khtml/pcre bug...
+              [^\r]*?\n           # any number of lines, minimally matching
+              </\2>               # the matching end tag
+              [\s\t]*              # trailing spaces/tabs
+              (?=\n+)             # followed by a newline
+          )                       # attacklab: there are sentinel newlines at end of document
+      /gm,function(){...}};
      ###
     regex_tags_a = new RegExp("^(<(" + block_tags_a + ")\\b[^\\r]*?\\n<\\/\\2>[ \\t]*(?=\\n+))", "gm")
     regex_tags_b = new RegExp("^(<(" + block_tags_b + ")\\b[^\\r]*?.*<\\/\\2>[ \\t]*(?=\\n+)\\n)", "gm")
@@ -854,3 +851,6 @@ Darkmown.converter = ->
 
 # expose Darkmown to global object
 @.Darkmown = Darkmown
+
+if (typeof define == 'function' && typeof define.amd == 'object' && define.amd)
+  define( -> Darkmown )
