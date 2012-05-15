@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<title>Demo Darkmown
+</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+<script>var require = {
+  baseUrl: window.location.protocol + "//" + window.location.host + window.location.pathname.split("/").slice(0, -1).join("/"),
+  paths: {
+    ace: "lib/ace"
+  }
+};
+</script>
+<script src="js/require.js" data-main="js/demo"></script>
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/demo.css" rel="stylesheet">
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container"><a data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a href="index.html" class="brand">Darkmown</a>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li><a href="index.html">Home</a>
+          </li>
+          <li class="active"><a href="demo.html">Live Demo</a>
+          </li>
+        </ul>
+        <ul class="nav pull-right">
+          <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Choose preview <b class="caret"></b></a>
+            <ul id="select_preview" class="dropdown-menu">
+              <li><a href="#" data-show="live_preview" data-hide="html_preview">Live preview</a>
+              </li>
+              <li><a href="#" data-show="html_preview" data-hide="live_preview">HTML preview</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="app">
+  <div class="user_input">
+    <pre id="editor" class="editor_pane"># Darkmown live demo
+
+## Syntax consistency
+
+* Titles like `&lt;h1&gt;` to `&lt;h6&gt;` only render with the # syntax
+* Urls are auto-linked no need to wrap them like this `&lt;url&gt;`
+* The same for emails
+
+## About
+
+**Darkmown** is a full-featured Markdown library written in CoffeeScript.
+
+## Text stye
+
+Want to make something **bold**?
+How about *italic*?
+
+&gt; Write a quote with &gt;
+
+## See your changes instantly
+
+Every time you edit the file on the left you can see the results
+
+## Links
+
+Urls with Markdown syntax [google](http://google.com)
+
+Auto-urls by Darkmown, just type any url starting with www or http:// and it automatically generates a link www.google.com
+
+## Emails
+
+Darkmown recognize when you type an email
+Just type the email asd@asd.com and boila
+it's encoded for a bit of security
+
+## Code tags
+
+    &lt;div class=&quot;sample&quot;&gt;
+      &lt;p&gt;Sample code tag&lt;/p&gt;
+    &lt;/div&gt;
+
+## Images
+
+![AngryBirds](http://www.rw-designer.com/icon-view/6144.png)
+
+## Unordered list
+
+- list
+  - [linked item](www.google.com)
+  - list3
+    - list4
+
+## Ordered list
+
+1. uno
+2. dos
+
+## Horizontal rules
+
+* * *
+
+    </pre>
+  </div>
+  <div id="preview" class="editor_pane">
+    <div id="live_preview">
+      <div id="rendered_result">
+      </div>
+    </div>
+    <div id="html_preview" class="hidden">
+      <div id="html_result">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <footer>
+    <hr>
+    <p>Created by Denis Ciccale (<a href='http://twitter.com/tdecs'>@tdecs</a>) and hosted on GitHub under MIT license.
+    </p>
+  </footer>
+</div>

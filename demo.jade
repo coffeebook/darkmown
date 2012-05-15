@@ -1,0 +1,114 @@
+!!!5
+title Demo Darkmown
+script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js')
+script
+  var require = {
+    baseUrl: window.location.protocol + "//" + window.location.host + window.location.pathname.split("/").slice(0, -1).join("/"),
+    paths: {
+      ace: "lib/ace"
+    }
+  };
+script(src='js/require.js', data-main="js/demo")
+link(href='css/bootstrap.css', rel='stylesheet')
+link(href='css/demo.css', rel='stylesheet')
+
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.brand(href='index.html') Darkmown
+      .nav-collapse
+        ul.nav
+          li
+            a(href='index.html') Home
+          li.active
+            a(href='demo.html') Live Demo
+
+        ul.nav.pull-right
+          li.dropdown
+            a(href='#', class="dropdown-toggle", data-toggle='dropdown') Choose preview <b class="caret"></b>
+            ul.dropdown-menu#select_preview
+              li
+                a(href='#', data-show='live_preview', data-hide='html_preview') Live preview
+              li
+                a(href='#', data-show='html_preview', data-hide='live_preview') HTML preview
+
+#app
+
+
+  .user_input
+    pre#editor.editor_pane
+      | # Darkmown live demo\n
+
+      | ## Syntax consistency\n
+
+      | * Titles like `<h1>` to `<h6>` only render with the # syntax
+      | * Urls are auto-linked no need to wrap them like this `<url>`
+      | * The same for emails\n
+
+      | ## About\n
+
+      | **Darkmown** is a full-featured Markdown library written in CoffeeScript.\n
+
+      | ## Text stye\n
+      | Want to make something **bold**?
+      | How about *italic*?\n
+
+      | > Write a quote with >\n
+
+      | ## See your changes instantly\n
+
+      | Every time you edit the file on the left you can see the results\n
+
+      | ## Links\n
+
+      | Urls with Markdown syntax [google](http://google.com)\n
+
+      | Auto-urls by Darkmown, just type any url starting with www or http:// and it automatically generates a link www.google.com\n
+
+      | ## Emails\n
+
+      | Darkmown recognize when you type an email
+      | Just type the email asd@asd.com and boila
+      | it's encoded for a bit of security\n
+
+      | ## Code tags\n
+
+      |     <div class="sample">
+      |       <p>Sample code tag</p>
+      |     </div>\n
+
+      | ## Images\n
+
+      | ![AngryBirds](http://www.rw-designer.com/icon-view/6144.png)\n
+
+      | ## Unordered list\n
+
+      | - list
+      |   - [linked item](www.google.com)
+      |   - list3
+      |     - list4\n
+
+      | ## Ordered list\n
+      | 1. uno
+      | 2. dos\n
+
+      | ## Horizontal rules\n
+
+      | * * *
+
+
+  #preview.editor_pane
+    #live_preview
+      #rendered_result
+
+    #html_preview.hidden
+      #html_result
+
+.container
+  footer
+    hr
+    p Created by Denis Ciccale (<a href='http://twitter.com/tdecs'>@tdecs</a>) and hosted on GitHub under MIT license.
