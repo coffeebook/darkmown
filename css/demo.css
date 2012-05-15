@@ -1,93 +1,18 @@
-body {
-  padding-top: 60px;
-  padding-bottom: 40px;
-}
-h1 span {
-  color: #555;
-  font-size: 16px;
-  font-weight: normal;
-  margin-left: 5px;
-}
-.quick-links {
-  min-height: 30px;
-  padding: 5px 20px;
-  list-style: none;
-  overflow: hidden;
-}
-.quick-links li {
-  display: inline;
-  margin: 0 8px;
-}
-.quick-links .github-btn,
-.quick-links .tweet-btn,
-.quick-links .follow-btn {
-  position: relative;
-  top: 5px;
-}
-#app {
-  position: relative;
-  height: 780px;
-}
-.user_input {
-  position: relative;
-}
-pre {
-  padding: 0;
-}
-.editor_pane {
-  position: absolute;
-  top: 25px;
-  width: 47%;
-  height: 740px;
-  border: 2px solid #999;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  -ms-box-flex: 1;
-  box-flex: 1;
-}
-#editor {
-  right: 0;
-  bottom: 0;
-  left: 25px;
-  -webkit-box-shadow: 0 0 80px rgba(0,0,0,0.30) inset 0 0 5px rgba(0,0,0,0.60);
-  -moz-box-shadow: 0 0 80px rgba(0,0,0,0.30) inset 0 0 5px rgba(0,0,0,0.60);
-  box-shadow: 0 0 80px rgba(0,0,0,0.30) inset 0 0 5px rgba(0,0,0,0.60);
-}
-#preview {
-  right: 25px;
-  padding: 20px;
-  background: lemonChiffon url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAHElEQVQIW2P8/HrTfwYcgBEkySvqx4hNftBJAgALnRuXuT9owgAAAABJRU5ErkJggg==");
-  overflow: auto;
-}
-#preview pre,
-#preview code {
-  padding: 2px 4px;
-  color: #df1144;
-  background-color: #fff;
-  border: 1px solid #b0b0b5;
-}
-#preview pre code {
-  background: transparent;
-  border: 0;
-}
-#preview hr {
-  border-bottom-color: #b29857;
-}
-#preview blockquote {
-  border-color: #b29857;
-}
-#html_result {
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-.hidden {
-  display: none;
-}
-footer {
-  margin-top: 60px;
-}
+body{padding-top:60px;padding-bottom:40px}
+h1 span{color:#555;font-size:16px;font-weight:normal;margin-left:5px}
+.quick-links{min-height:30px;padding:5px 20px;list-style:none;overflow:hidden;}
+.quick-links li{display:inline;margin:0 8px}
+.quick-links .github-btn,.quick-links .tweet-btn,.quick-links .follow-btn{position:relative;top:5px}
+#app{position:relative;height:780px}
+.user_input{position:relative}
+pre{padding:0}
+.editor_pane{position:absolute;top:25px;width:47%;height:740px;border:2px solid #999;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-box-flex:1;-moz-box-flex:1;-ms-box-flex:1;box-flex:1}
+#editor{right:0;bottom:0;left:25px;-webkit-box-shadow:0 0 80px rgba(0,0,0,0.30) inset 0 0 5px rgba(0,0,0,0.60);-moz-box-shadow:0 0 80px rgba(0,0,0,0.30) inset 0 0 5px rgba(0,0,0,0.60);box-shadow:0 0 80px rgba(0,0,0,0.30) inset 0 0 5px rgba(0,0,0,0.60)}
+#preview{right:25px;padding:20px;background:lemonChiffon url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAHElEQVQIW2P8/HrTfwYcgBEkySvqx4hNftBJAgALnRuXuT9owgAAAABJRU5ErkJggg==");overflow:auto;}
+#preview pre,#preview code{padding:2px 4px;color:#df1144;background-color:#fff;border:1px solid #b0b0b5}
+#preview pre code{background:transparent;border:0}
+#preview hr{border-bottom-color:#b29857}
+#preview blockquote{border-color:#b29857}
+#html_result{font-family:Menlo,Monaco,Consolas,"Courier New",monospace}
+.hidden{display:none}
+footer{margin-top:60px}
