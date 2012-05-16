@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<title>Demo Darkmown
-</title>
+<title>Demo Darkmown</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 <script>var require = {
   baseUrl: window.location.protocol + "//" + window.location.host + window.location.pathname.split("/").slice(0, -1).join("/"),
@@ -12,6 +11,17 @@
 <script src="js/require.js" data-main="js/demo"></script>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/demo.css" rel="stylesheet">
+<script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-24098807-5']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+</script>
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container"><a href="index.html" class="brand">Darkmown</a>
@@ -103,19 +113,16 @@ it's encoded for a bit of security
   </div>
   <div id="preview" class="editor_pane">
     <div id="live_preview">
-      <div id="rendered_result">
-      </div>
+      <div id="rendered_result"></div>
     </div>
     <div id="html_preview" class="hidden">
-      <div id="html_result">
-      </div>
+      <div id="html_result"></div>
     </div>
   </div>
 </div>
 <div class="container">
   <footer>
     <hr>
-    <p>Created by Denis Ciccale (<a href='http://twitter.com/tdecs'>@tdecs</a>) and hosted on GitHub under MIT license.
-    </p>
+    <p>Created by Denis Ciccale (<a href='http://twitter.com/tdecs'>@tdecs</a>) and hosted on GitHub under MIT license.</p>
   </footer>
 </div>
