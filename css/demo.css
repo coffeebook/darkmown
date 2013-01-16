@@ -59,6 +59,7 @@ pre {
   -moz-box-shadow: 0 0 80px rgba(0,0,0,0.3) inset 0 0 5px rgba(0,0,0,0.6);
   box-shadow: 0 0 80px rgba(0,0,0,0.3) inset 0 0 5px rgba(0,0,0,0.6);
   background-color: #272822;
+  color: #f8f8f2;
 }
 #preview {
   right: 25px;
