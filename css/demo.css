@@ -55,9 +55,9 @@ pre {
   right: 0;
   bottom: 0;
   left: 25px;
-  -webkit-box-shadow: 0 0 80px rgba(0,0,0,0.30) inset 0 0 5px rgba(0,0,0,0.60);
-  -moz-box-shadow: 0 0 80px rgba(0,0,0,0.30) inset 0 0 5px rgba(0,0,0,0.60);
-  box-shadow: 0 0 80px rgba(0,0,0,0.30) inset 0 0 5px rgba(0,0,0,0.60);
+  -webkit-box-shadow: 0 0 80px rgba(0,0,0,0.3) inset 0 0 5px rgba(0,0,0,0.6);
+  -moz-box-shadow: 0 0 80px rgba(0,0,0,0.3) inset 0 0 5px rgba(0,0,0,0.6);
+  box-shadow: 0 0 80px rgba(0,0,0,0.3) inset 0 0 5px rgba(0,0,0,0.6);
   background-color: #272822;
 }
 #preview {
@@ -78,7 +78,8 @@ pre {
   border: 0;
 }
 #preview hr {
-  border-bottom-color: #b29857;
+  height: 0;
+  border: 2px solid #ff8500;
 }
 #preview blockquote {
   border-color: #b29857;
@@ -91,4 +92,18 @@ pre {
 }
 footer {
   margin-top: 60px;
+}
+.ace-monokai .ace_markup.ace_list {
+  color: #e6db74;
+}
+.ace-monokai .ace_markup.ace_heading {
+  color: #79abff;
+}
+.ace-monokai .ace_marker-layer .ace_selection {
+  background: #5e5e55;
+  border-radius: 3px;
+}
+.ace-monokai.multiselect .ace_selection.start {
+  box-shadow: 0 0 3px 0px #fff;
+  border-radius: 3px;
 }

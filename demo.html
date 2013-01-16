@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<title>Demo Darkmown
-</title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
-<script>var require = {
-  baseUrl: window.location.protocol + "//" + window.location.host + window.location.pathname.split("/").slice(0, -1).join("/"),
-  paths: {
-    ace: "lib/ace"
-  }
-};
-</script>
-<script src="js/require.js" data-main="js/demo"></script>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/demo.css" rel="stylesheet">
-<script>var _gaq = _gaq || [];
+<!DOCTYPE html><title>Demo Darkmown</title><link href="css/bootstrap.min.css" rel="stylesheet"><link href="css/demo.css" rel="stylesheet"><script>var _gaq = _gaq | [];
 _gaq.push(['_setAccount', 'UA-24098807-5']);
 _gaq.push(['_trackPageview']);
 
@@ -21,35 +7,7 @@ _gaq.push(['_trackPageview']);
   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
-
-</script>
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container"><a href="index.html" class="brand">Darkmown</a>
-      <div class="nav-collapse">
-        <ul class="nav">
-          <li><a href="index.html">Home</a>
-          </li>
-          <li class="active"><a href="demo.html">Live Demo</a>
-          </li>
-        </ul>
-        <ul class="nav pull-right">
-          <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Choose preview <b class="caret"></b></a>
-            <ul id="select_preview" class="dropdown-menu">
-              <li><a href="#" data-show="live_preview" data-hide="html_preview">Live preview</a>
-              </li>
-              <li><a href="#" data-show="html_preview" data-hide="live_preview">HTML preview</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="app">
-  <div class="user_input">
-    <pre id="editor" class="editor_pane"># Darkmown live demo
+</script><div class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a href="index.html" class="brand">Darkmown</a><div class="nav-collapse"><ul class="nav"><li><a href="index.html">Home</a></li><li class="active"><a href="demo.html">Live Demo</a></li></ul><ul class="nav pull-right"><li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Choose preview <b class="caret"></b></a><ul id="select_preview" class="dropdown-menu"><li><a href="#" data-show="live_preview" data-hide="html_preview">Live preview</a></li><li><a href="#" data-show="html_preview" data-hide="live_preview">HTML preview</a></li></ul></li></ul></div></div></div></div><div id="app"><div class="user_input"><div id="editor" class="editor_pane"># Darkmown live demo
 
 ## Syntax consistency
 
@@ -62,7 +20,6 @@ _gaq.push(['_trackPageview']);
 **Darkmown** is a full-featured Markdown library written in CoffeeScript.
 
 ## Text style
-
 Want to make something **bold**?
 How about *italic*?
 
@@ -86,10 +43,10 @@ it's encoded for a bit of security
 
 ## Code tags
 
-    &lt;div class=&quot;sample&quot;&gt;
+    &lt;div class="sample"&gt;
       &lt;p&gt;Sample code tag&lt;/p&gt;
     &lt;/div&gt;
-
+    
 ## Images
 
 ![AngryBirds](http://www.rw-designer.com/icon-view/6144.png)
@@ -100,9 +57,8 @@ it's encoded for a bit of security
   - [linked item](www.google.com)
   - list3
     - list4
-
+    
 ## Ordered list
-
 1. uno
 2. dos
 
@@ -110,23 +66,4 @@ it's encoded for a bit of security
 
 * * *
 
-    </pre>
-  </div>
-  <div id="preview" class="editor_pane">
-    <div id="live_preview">
-      <div id="rendered_result">
-      </div>
-    </div>
-    <div id="html_preview" class="hidden">
-      <div id="html_result">
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <footer>
-    <hr>
-    <p>Created by Denis Ciccale (<a href='http://twitter.com/tdecs'>@tdecs</a>) and hosted on GitHub under MIT license.
-    </p>
-  </footer>
-</div>
+</div></div><div id="preview" class="editor_pane"><div id="live_preview"><div id="rendered_result"></div></div><div id="html_preview" class="hidden"><div id="html_result"></div></div></div></div><div class="container"><footer><hr><p>Created by Denis Ciccale (<a href='http://twitter.com/tdecs'>@tdecs</a>) and hosted on GitHub under MIT license.</p></footer></div><script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script><script src="js/demo.js"></script>

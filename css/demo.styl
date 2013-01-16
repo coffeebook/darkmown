@@ -76,7 +76,8 @@ pre
     border 0
 
   hr
-    border-bottom-color hsl(43, 37%, 52%)
+    height 0
+    border 2px solid #FF8500
 
   blockquote
     border-color hsl(43, 37%, 52%)
@@ -89,3 +90,18 @@ pre
 
 footer
   margin-top 60px
+
+// improve markdown syntax highlight for monokai ace theme
+.ace-monokai .ace_markup.ace_list
+  color #E6DB74
+
+.ace-monokai .ace_markup.ace_heading
+  color #79ABFF
+
+.ace-monokai .ace_marker-layer .ace_selection
+  background #5E5E55
+  border-radius 3px
+
+.ace-monokai.multiselect .ace_selection.start
+  box-shadow 0 0 3px 0px white
+  border-radius 3px

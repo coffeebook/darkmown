@@ -1,18 +1,11 @@
 !!!5
 title Demo Darkmown
-script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js')
-script
-  var require = {
-    baseUrl: window.location.protocol + "//" + window.location.host + window.location.pathname.split("/").slice(0, -1).join("/"),
-    paths: {
-      ace: "lib/ace"
-    }
-  };
-script(src='js/require.js', data-main="js/demo")
+
 link(href='css/bootstrap.min.css', rel='stylesheet')
 link(href='css/demo.css', rel='stylesheet')
+
 script
-  var _gaq = _gaq || [];
+  var _gaq = _gaq | [];
   _gaq.push(['_setAccount', 'UA-24098807-5']);
   _gaq.push(['_trackPageview']);
 
@@ -44,65 +37,65 @@ script
 
 #app
   .user_input
-    pre#editor.editor_pane
-      | # Darkmown live demo\n
+    #editor.editor_pane.
+      # Darkmown live demo
 
-      | ## Syntax consistency\n
+      ## Syntax consistency
 
-      | * Titles like `<h1>` to `<h6>` only render with the # syntax
-      | * Urls are auto-linked no need to wrap them like this `<url>`
-      | * The same for emails\n
+      * Titles like `&lt;h1&gt;` to `&lt;h6&gt;` only render with the # syntax
+      * Urls are auto-linked no need to wrap them like this `&lt;url&gt;`
+      * The same for emails
 
-      | ## About\n
+      ## About
 
-      | **Darkmown** is a full-featured Markdown library written in CoffeeScript.\n
+      **Darkmown** is a full-featured Markdown library written in CoffeeScript.
 
-      | ## Text style\n
-      | Want to make something **bold**?
-      | How about *italic*?\n
+      ## Text style
+      Want to make something **bold**?
+      How about *italic*?
 
-      | > Write a quote with >\n
+      &gt; Write a quote with &gt;
 
-      | ## See your changes instantly\n
+      ## See your changes instantly
 
-      | Every time you edit the file on the left you can see the results\n
+      Every time you edit the file on the left you can see the results
 
-      | ## Links\n
+      ## Links
 
-      | Urls with Markdown syntax [google](http://google.com)\n
+      Urls with Markdown syntax [google](http://google.com)
 
-      | Auto-urls by Darkmown, just type any url starting with www or http:// and it automatically generates a link www.google.com\n
+      Auto-urls by Darkmown, just type any url starting with www or http:// and it automatically generates a link www.google.com
 
-      | ## Emails\n
+      ## Emails
 
-      | Darkmown recognize when you type an email
-      | Just type the email asd@asd.com and boila
-      | it's encoded for a bit of security\n
+      Darkmown recognize when you type an email
+      Just type the email asd@asd.com and boila
+      it's encoded for a bit of security
 
-      | ## Code tags\n
+      ## Code tags
 
-      |     <div class="sample">
-      |       <p>Sample code tag</p>
-      |     </div>\n
+          &lt;div class="sample"&gt;
+            &lt;p&gt;Sample code tag&lt;/p&gt;
+          &lt;/div&gt;
 
-      | ## Images\n
+      ## Images
 
-      | ![AngryBirds](http://www.rw-designer.com/icon-view/6144.png)\n
+      ![AngryBirds](http://www.rw-designer.com/icon-view/6144.png)
 
-      | ## Unordered list\n
+      ## Unordered list
 
-      | - list
-      |   - [linked item](www.google.com)
-      |   - list3
-      |     - list4\n
+      - list
+        - [linked item](www.google.com)
+        - list3
+          - list4
 
-      | ## Ordered list\n
-      | 1. uno
-      | 2. dos\n
+      ## Ordered list
+      1. uno
+      2. dos
 
-      | ## Horizontal rules\n
+      ## Horizontal rules
 
-      | * * *
+      * * *
 
 
   #preview.editor_pane
@@ -116,3 +109,8 @@ script
   footer
     hr
     p Created by Denis Ciccale (<a href='http://twitter.com/tdecs'>@tdecs</a>) and hosted on GitHub under MIT license.
+
+
+script(src='http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js')
+script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+script(src='js/demo.js')
