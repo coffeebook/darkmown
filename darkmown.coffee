@@ -1,5 +1,6 @@
 ###
 darkmown.js is a CoffeeScript port of Markdown
+
 Copyright (c) 2012 Denis Ciccale (@tdecs)
 https://github.com/dciccale/darkmown
 
@@ -8,6 +9,9 @@ http://daringfireball.net/projects/markdown/
 
 Inspired by showdown.js
 https://github.com/coreyti/showdown
+
+2013 (c) Patched for Creole blend-in of several tags/markup.
+https://github.com/coffeebook/darkmown
 ###
 
 
@@ -250,7 +254,9 @@ Darkmown.converter = ->
     # <strong> must go first:
     text = text
       .replace(/([\W_]|^)(\*\*|__)(?=\S)([^\r]*?\S[\*_]*)\2([\W_]|$)/g, "$1<strong>$3</strong>$4")
-      .replace(/([\W_]|^)(\*|_)(?=\S)([^\r\*_]*?\S)\2([\W_]|$)/g, "$1<em>$3</em>$4")
+
+      # HACK: changed italic <em> to Creole syntax or //words here//
+      .replace(/([\W_]|^)(\/\/|_)(?=\S)([^\r\/\/_]*?\S)\2([\W_]|$)/g, "$1<em>$3</em>$4")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # #
 

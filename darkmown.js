@@ -1,6 +1,7 @@
 
 /*
 darkmown.js is a CoffeeScript port of Markdown
+
 Copyright (c) 2012 Denis Ciccale (@tdecs)
 https://github.com/dciccale/darkmown
 
@@ -9,7 +10,11 @@ http://daringfireball.net/projects/markdown/
 
 Inspired by showdown.js
 https://github.com/coreyti/showdown
+
+2013 (c) Patched for Creole blend-in of several tags/markup.
+https://github.com/coffeebook/darkmown
 */
+
 
 (function() {
   var Darkmown;
@@ -40,7 +45,9 @@ https://github.com/coreyti/showdown
     prev_text = '';
     prev_html = '';
     this.makeHtml = function(text) {
-      if (!text) return '';
+      if (!text) {
+        return '';
+      }
       if (prev_text !== text) {
         prev_text = text;
       } else if (prev_text === text) {
@@ -66,10 +73,14 @@ https://github.com/coreyti/showdown
     encodeProblemUrlChars = function(url) {
       var len, _problemUrlChars;
       _problemUrlChars = /(?:["'*()[\]:]|~D)/g;
-      if (!url) return "";
+      if (!url) {
+        return "";
+      }
       len = url.length;
       return url.replace(_problemUrlChars, function(match, offset) {
-        if (match === "~D") return "%24";
+        if (match === "~D") {
+          return "%24";
+        }
         if (match === ":") {
           if (offset === len - 1 || /[0-9\/]/.test(url.charAt(offset + 1))) {
             return ":";
@@ -81,7 +92,9 @@ https://github.com/coreyti/showdown
     escapeCharacters = function(text, charsToEscape, afterBackslash) {
       var regex, regexString;
       regexString = "([" + charsToEscape.replace(/([\[\]\\])/g, "\\$1") + "])";
-      if (afterBackslash) regexString = "\\\\" + regexString;
+      if (afterBackslash) {
+        regexString = "\\\\" + regexString;
+      }
       regex = new RegExp(regexString, "g");
       return text = text.replace(regex, escapeCharacters_callback);
     };
@@ -94,7 +107,9 @@ https://github.com/coreyti/showdown
     };
     _Detab = function(text) {
       var skew, spaces;
-      if (!/\t/.test(text)) return text;
+      if (!/\t/.test(text)) {
+        return text;
+      }
       spaces = ["    ", "   ", "  ", " "];
       skew = 0;
       return text.replace(/[\n\t]/g, function(match, offset) {
@@ -133,7 +148,7 @@ https://github.com/coreyti/showdown
       });
     };
     _DoItalicsAndBold = function(text) {
-      return text = text.replace(/([\W_]|^)(\*\*|__)(?=\S)([^\r]*?\S[\*_]*)\2([\W_]|$)/g, "$1<strong>$3</strong>$4").replace(/([\W_]|^)(\*|_)(?=\S)([^\r\*_]*?\S)\2([\W_]|$)/g, "$1<em>$3</em>$4");
+      return text = text.replace(/([\W_]|^)(\*\*|__)(?=\S)([^\r]*?\S[\*_]*)\2([\W_]|$)/g, "$1<strong>$3</strong>$4").replace(/([\W_]|^)(\/\/|_)(?=\S)([^\r\/\/_]*?\S)\2([\W_]|$)/g, "$1<em>$3</em>$4");
     };
     _EscapeSpecialCharsWithinTagAttributes = function(text) {
       return text = text.replace(/(<[a-z\/!$]("[^"]*"|'[^']*'|[^'">])*>|<!(--(?:|(?:[^>-]|-[^>])(?:[^-]|-[^-])*)--)>)/gi, function(wholeMatch) {
@@ -152,7 +167,9 @@ https://github.com/coreyti/showdown
       link_id = m3.toLowerCase();
       url = m4;
       title = m7;
-      if (!title) title = "";
+      if (!title) {
+        title = "";
+      }
       if (url === "") {
         if (link_id === "") {
           link_id = alt_text.toLowerCase().replace(/\s?\n/g, " ");
@@ -160,7 +177,9 @@ https://github.com/coreyti/showdown
         url = "#" + link_id;
         if (g_urls.get(link_id) !== void 0) {
           url = g_urls.get(link_id);
-          if (g_titles.get(link_id) !== void 0) title = g_titles.get(link_id);
+          if (g_titles.get(link_id) !== void 0) {
+            title = g_titles.get(link_id);
+          }
         } else {
           return whole_match;
         }
@@ -177,7 +196,9 @@ https://github.com/coreyti/showdown
     };
     writeAnchorTag = function(wholeMatch, m1, m2, m3, m4, m5, m6, m7) {
       var link_id, link_text, result, title, url, whole_match;
-      if (m7 === void 0) m7 = "";
+      if (m7 === void 0) {
+        m7 = "";
+      }
       whole_match = m1;
       link_text = m2.replace(/:\/\//g, "&#58;//");
       link_id = m3.toLowerCase();
@@ -190,7 +211,9 @@ https://github.com/coreyti/showdown
         url = "#" + link_id;
         if (g_urls.get(link_id) !== void 0) {
           url = g_urls.get(link_id);
-          if (g_titles.get(link_id) !== void 0) title = g_titles.get(link_id);
+          if (g_titles.get(link_id) !== void 0) {
+            title = g_titles.get(link_id);
+          }
         } else {
           if (whole_match.search(/\(\s*\)$/m) > -1) {
             url = "";
@@ -201,7 +224,9 @@ https://github.com/coreyti/showdown
       }
       url = encodeProblemUrlChars(url);
       url = escapeCharacters(url, "*_");
-      if (!/(https?|ftp|dict):\/\//.test(url)) url = 'http://' + url;
+      if (!/(https?|ftp|dict):\/\//.test(url)) {
+        url = 'http://' + url;
+      }
       result = "<a href=\"" + url + "\"";
       if (title !== "") {
         title = title.replace(/"/g, "&quot;");
@@ -252,19 +277,23 @@ https://github.com/coreyti/showdown
       return addr = addr.replace(/">.+:/g, "\">");
     };
     _DoAutoLinks = function(text) {
-      var i, replaceUrls, url, urls, _len;
+      var i, replaceUrls, url, urls, _i, _len;
       urls = text.split(/\n/);
       replaceUrls = function(i, url) {
-        if (/(^|\s+)<(a|i|ul)/.test(url)) return url;
+        if (/(^|\s+)<(a|i|ul)/.test(url)) {
+          return url;
+        }
         return urls[i] = urls[i].replace(/(>\n)?((https?|ftp|dict):\/\/|www\.)[^'">\s\<]+/gi, function(wholeMatch, m1, m2) {
           var link;
           link = wholeMatch;
-          if (m2 === 'www.') link = 'http://' + link;
+          if (m2 === 'www.') {
+            link = 'http://' + link;
+          }
           return "<a href=\"" + link + "\">" + wholeMatch + "</a>";
         });
       };
       if (urls.length > 0) {
-        for (i = 0, _len = urls.length; i < _len; i++) {
+        for (i = _i = 0, _len = urls.length; _i < _len; i = ++_i) {
           url = urls[i];
           replaceUrls(i, url);
         }
@@ -370,7 +399,7 @@ https://github.com/coreyti/showdown
       return text;
     };
     _FormParagraphs = function(text) {
-      var blockText, grafs, grafsOut, i, j, str, _i, _j, _len, _len2;
+      var blockText, grafs, grafsOut, i, j, str, _i, _j, _len, _len1;
       text = text.replace(/^\n+/g, "").replace(/\n+$/g, "");
       grafs = text.split(/\n{2,}/g);
       grafsOut = [];
@@ -386,7 +415,7 @@ https://github.com/coreyti/showdown
           grafsOut.push(str);
         }
       }
-      for (_j = 0, _len2 = grafsOut.length; _j < _len2; _j++) {
+      for (_j = 0, _len1 = grafsOut.length; _j < _len1; _j++) {
         j = grafsOut[_j];
         while (grafsOut[_j].search(/~K(\d+)K/) >= 0) {
           blockText = g_html_blocks[RegExp.$1];
@@ -414,19 +443,20 @@ https://github.com/coreyti/showdown
       block_tags_a = "p|div|h[1-6]|blockquote|pre|table|dl|ol|ul|script|noscript|form|fieldset|iframe|math|ins|del";
       block_tags_b = "p|div|h[1-6]|blockquote|pre|table|dl|ol|ul|script|noscript|form|fieldset|iframe|math";
       /*
-            text = text.replace(/
-                (                       # save in $1
-                    ^                   # start of line  (with /m)
-                    <(block_tags_a)     # start tag = $2
-                    \b                  # word break
-                                        # attacklab: hack around khtml/pcre bug...
-                    [^\r]*?\n           # any number of lines, minimally matching
-                    </\2>               # the matching end tag
-                    [\s\t]*              # trailing spaces/tabs
-                    (?=\n+)             # followed by a newline
-                )                       # attacklab: there are sentinel newlines at end of document
-            /gm,function(){...}};
+        text = text.replace(/
+            (                       # save in $1
+                ^                   # start of line  (with /m)
+                <(block_tags_a)     # start tag = $2
+                \b                  # word break
+                                    # attacklab: hack around khtml/pcre bug...
+                [^\r]*?\n           # any number of lines, minimally matching
+                </\2>               # the matching end tag
+                [\s\t]*              # trailing spaces/tabs
+                (?=\n+)             # followed by a newline
+            )                       # attacklab: there are sentinel newlines at end of document
+        /gm,function(){...}};
       */
+
       regex_tags_a = new RegExp("^(<(" + block_tags_a + ")\\b[^\\r]*?\\n<\\/\\2>[ \\t]*(?=\\n+))", "gm");
       regex_tags_b = new RegExp("^(<(" + block_tags_b + ")\\b[^\\r]*?.*<\\/\\2>[ \\t]*(?=\\n+)\\n)", "gm");
       return text = text.replace(regex_tags_a, hashElement).replace(regex_tags_b, hashElement).replace(/\n[\s]{0,3}((<(hr)\b([^<>])*?\/?>)[\s\t]*(?=\n{2,}))/g, hashElement).replace(/\n\n[\s]{0,3}(<!(--(?:|(?:[^>-]|-[^>])(?:[^-]|-[^-])*)--)>[\s\t]*(?=\n{2,}))/g, hashElement).replace(/(?:\n\n)([\s]{0,3}(?:<([?%])[^\r]*?\2>)[\s\t]*(?=\n{2,}))/g, hashElement);
@@ -448,3 +478,5 @@ https://github.com/coreyti/showdown
   }
 
 }).call(this);
+
+// Generated by CoffeeScript 1.5.0-pre
