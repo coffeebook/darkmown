@@ -9,7 +9,7 @@
 
 ## Demo
 
-See a [Live Demo](http://dciccale.github.com/darkmown/)
+See a [Live Demo](http://coffeebook.github.com/darkmown/)
 
 ## License
 
