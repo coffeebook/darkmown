@@ -249,14 +249,30 @@ Darkmown.converter = ->
       )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # HERE-REGEX added by Supersym and added allowance for
+  # the Creole way of writing italic //using these//
+  # 2013. 3rd of March
 
   _DoItalicsAndBold = (text) ->
     # <strong> must go first:
     text = text
-      .replace(/([\W_]|^)(\*\*|__)(?=\S)([^\r]*?\S[\*_]*)\2([\W_]|$)/g, "$1<strong>$3</strong>$4")
+      .replace(///
+        ([\W_]|^)                # get a word boundry or start of the sentence in capturing group
+        (\*\*|__)                # capture double asterix or double underscore
+        (?=\S)                   # positive look-ahead matching
+        ([^\r]*?\S[\*_]*)\2      # any strings not carriage returns closing with ** or __
+        ([\W_]|$)                # either end of the word, or sentence
+        ///g, "$1<strong>$3</strong>$4") # bold print <strong></strong>
 
       # HACK: changed italic <em> to Creole syntax or //words here//
-      .replace(/([\W_]|^)(\/\/|_)(?=\S)([^\r\/\/_]*?\S)\2([\W_]|$)/g, "$1<em>$3</em>$4")
+      # Here-regex for clarity and my own learning
+      .replace(///
+        ([\W_]|^)                # word or sentence boundry
+        (\*|_|\/\/)              # italic by use of *, _ or // opening
+        (?=\S)                   # matching group look-ahead
+        ([^\r\*\/\/_]*?\S)\2     # proper closing not being carriage return
+        ([\W_]|$)                # end of a word or sentence
+        ///g, "$1<em>$3</em>$4") # replace with tag <em>value</em>
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -661,7 +677,18 @@ Darkmown.converter = ->
   # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   _DoBlockQuotes = (text) ->
-    text = text.replace(/((^[\s\t]*>[\s\t]?.+\n(.+\n)*\n*)+)/gm, (wholeMatch, m1) ->
+    text = text.replace(///
+
+      (
+        (
+          ^[\s\t]*>
+          [\s\t]?.+\n
+        (.+\n)
+        *\n*
+        )+
+          )face
+
+      ///gm, (wholeMatch, m1) ->
       bq = m1
         .replace(/^[\s\t]*>[\s\t]?/gm, "~0")
         .replace(/~0/g, "")
